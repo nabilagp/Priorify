@@ -14,7 +14,7 @@ class ReportController extends Controller
         $groupBy = $request->get('group_by', 'date');
 
         $tasks = Task::where('user_id', auth()->id()) // 👈 Tambahkan ini
-        ->selectRaw = Task::selectRaw("
+        ->selectRaw("
             COUNT(*) as total,
             " . match($groupBy) {
                 'date' => "DATE(deadline) as label",
