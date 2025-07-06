@@ -888,6 +888,7 @@
             .subtitle {
                 font-size: 1.05rem;
                 margin-bottom: 25px;
+                color:rgb(0, 0, 0)
             }
 
             .illustration {
@@ -1146,8 +1147,7 @@
                 From <span>Chaos</span> to <span>Clarity</span>
             </h1>
             <p class="subtitle">
-                Priorify helps you turn scattered tasks into a focused workflow. Organize, prioritize, and achieve your goals with intelligent task management.
-            </p>
+                Priorify helps you turn scattered tasks into a focused workflow.
             
             <!-- Task Cards Illustration -->
             <div class="illustration">
