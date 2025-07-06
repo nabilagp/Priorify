@@ -13,18 +13,20 @@ class ReportController extends Controller
     {
         $groupBy = $request->get('group_by', 'date');
 
-        $tasks = Task::selectRaw("
-            COUNT(*) as total,
-            " . match($groupBy) {
-                'date' => "DATE(deadline) as label",
-                'week' => "WEEK(deadline, 1) as label",
-                'month' => "MONTHNAME(deadline) as label",
-                default => "DATE(deadline) as label"
-            }
-        )
-        ->groupBy('label')
-        ->orderByRaw('MIN(deadline)')
-        ->get();
+$tasks = Task::where('user_id', auth()->id())
+    ->selectRaw("
+        COUNT(*) as total,
+        " . match($groupBy) {
+            'date' => "DATE(deadline) as label",
+            'week' => "WEEK(deadline, 1) as label",
+            'month' => "MONTHNAME(deadline) as label",
+            default => "DATE(deadline) as label"
+        }
+    )
+    ->groupBy('label')
+    ->orderByRaw('MIN(deadline)')
+    ->get();
+
 
         return view('report', compact('tasks', 'groupBy'));
     }

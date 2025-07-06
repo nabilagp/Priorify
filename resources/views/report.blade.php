@@ -240,9 +240,9 @@
             <div class="form-group">
                 <label for="group_by">Group by:</label>
                 <select name="group_by" id="group_by" onchange="this.form.submit()">
-                    <option value="date" {{ $groupBy == 'date' ? 'selected' : '' }}>Tanggal</option>
-                    <option value="week" {{ $groupBy == 'week' ? 'selected' : '' }}>Minggu</option>
-                    <option value="month" {{ $groupBy == 'month' ? 'selected' : '' }}>Bulan</option>
+                    <option value="date" {{ $groupBy == 'date' ? 'selected' : '' }}>Date</option>
+                    <option value="week" {{ $groupBy == 'week' ? 'selected' : '' }}>Week</option>
+                    <option value="month" {{ $groupBy == 'month' ? 'selected' : '' }}>Month</option>
                 </select>
             </div>
 
