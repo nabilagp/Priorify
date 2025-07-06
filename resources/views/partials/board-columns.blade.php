@@ -1,3 +1,35 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+.deadline-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    color: #444;
+}
+
+.deadline-wrapper i.fa-clock {
+    color: #888;
+    font-size: 14px;
+}
+
+.deadline-input {
+    border: none;
+    background: transparent;
+    font-size: 13px;
+    color: #333;
+    padding: 0;
+    outline: none;
+    pointer-events: none; /* Biar nggak bisa diklik */
+}
+
+</style>
+
+
+
 <div class="board-wrapper">
 
     {{-- Status Overview di kiri --}}
@@ -57,9 +89,18 @@
                             <div>
                                 <strong>{{ $task->title }}</strong><br>
                                 <small>{{ $task->description }}</small><br>
-                                <input type="date" name="deadline" id="deadline-{{ $task->id }}"
-                                    value="{{ old('deadline', optional($task->deadline)->format('Y-m-d')) }}"
-                                    style="margin-top: 6px;">
+                                <div class="deadline-wrapper">
+    <i class="fas fa-clock"></i>
+    <input type="text" 
+           name="deadline" 
+           id="deadline-{{ $task->id }}"
+           value="{{ old('deadline', optional($task->deadline)->format('Y-m-d')) }}"
+           class="deadline-input" 
+           placeholder="Select deadline">
+</div>
+
+
+
                             </div>
 
                             <div class="menu-container" style="position: relative;">
