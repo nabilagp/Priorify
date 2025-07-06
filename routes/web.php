@@ -48,8 +48,8 @@ Route::post('/login', function (Request $request) {
 
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');
-Route::get('oauth/google', [LoginController::class, 'redirectToProvider'])->name('login.google');  
-Route::get('oauth/google/callback', [LoginController::class, 'handleProviderCallback'])->name('login.google.callback');
+Route::get('auth/google', [LoginController::class, 'redirectToProvider'])->name('google.login');  
+Route::get('auth/google/callback', [LoginController::class, 'handleProviderCallback'])->name('login.google.callback');
 
 Route::get('/latest-task', [ProfileController::class, 'getLatestTask'])->name('latest-task');
 

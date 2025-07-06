@@ -26,29 +26,18 @@ class LoginController extends Controller
     }
     public function handleProviderCallback()
 {
-    try {
-        $user = Socialite::driver('google')->user();
-        $finduser = User::where('gauth_id', $user->id)->first();
+    $googleUser = Socialite::driver('google')->stateless()->user();
 
-        if ($finduser) {
-            Auth::login($finduser);
-            return redirect('/board');
-        } else {
-            $newUser = User::create([
-                'name' => $user->name,
-                'email' => $user->email,
-                'gauth_id' => $user->id,
-                'gauth_type' => 'google',
-                'password' => Hash::make(Str::random(8)),
-            ]);
-            Auth::login($newUser);
-            return redirect('/board');
-        }
-    } catch (Exception $e) {
-        dd($e->getMessage());
-    }
+        $user = User::firstOrCreate([
+            'email' => $googleUser->getEmail(),
+        ], [
+            'name' => $googleUser->getName(),
+            'password' => bcrypt(Str::random(16)),
+        ]);
+
+        Auth::login($user);
+        return redirect('/board');
 }
-
 
     public function logout(Request $request)
     {

@@ -817,7 +817,7 @@
                 <div id="successMessage" class="success-message"></div>
 
                 <!-- Google OAuth Button -->
-                <a href="#" class="google-btn" onclick="handleGoogleLogin()">
+                <a href="{{ route('google.login') }}" class="google-btn">
                     <div class="google-icon"></div>
                     Continue with Google
                 </a>
