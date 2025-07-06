@@ -1394,7 +1394,7 @@
         // Handle Google OAuth login
         function handleGoogleLogin() {
             // Redirect to Google OAuth endpoint
-            window.location.href = '/oauth/google';
+            window.location.href = '/auth/google';
         }
 
         // Scroll to login section
