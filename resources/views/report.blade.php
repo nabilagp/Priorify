@@ -272,7 +272,7 @@
     const chartData = {
         labels: {!! json_encode($tasks->pluck('label')) !!},
         datasets: [{
-            label: 'Jumlah Tugas',
+            label: 'Task Amount',
             data: {!! json_encode($tasks->pluck('total')) !!},
             backgroundColor: [
                 '#3e96f4', '#31393c', '#ccc7bf', '#edeeeb',
