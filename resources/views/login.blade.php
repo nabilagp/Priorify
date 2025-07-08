@@ -293,7 +293,7 @@
 
         .subtitle {
             font-size: 1.1rem;
-            color: #ccc7bf;
+            color: #000;
             margin-bottom: 30px;
             line-height: 1.5;
         }
